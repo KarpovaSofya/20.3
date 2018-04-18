@@ -1,0 +1,30 @@
+def  func1(stri,a,b):
+	i1 = stri
+
+	i1 = i1.replace('1',str(a))
+	i1 = i1.replace('0',str(b))
+	return(i1)
+
+def  func2(stri,a,b):
+	i1 = stri
+	i1 = i1.replace('1',str(b))
+	i1 = i1.replace('0',str(a))
+	return(i1)
+
+def myfunc(n,x,y):
+	k = 0
+	s =[]
+	for i in range(1,2 ** len(str(n))):
+		if x != 0:
+			k = int(func1(str(bin(i)[2:]),x,y))
+			if k <= n:
+				s.append(k)
+		if y!= 0:
+			k = int(func2(str(bin(i)[2:]),x,y))
+			if k <= n:
+				s.append(k)
+	return(len(set(s)))
+	
+n,x,y = input().split(" ")
+
+print(myfunc(int(n),int(x),int(y)))
